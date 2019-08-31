@@ -1,28 +1,19 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import React, { useState } from 'react';
 import styles from './App.css';
+import ReactDOM from 'react-dom';
 
-class App extends Component {
+function App(props) {
+    const [count, setCount] = useState(0);
 
-  constructor(props) {
-    super(props);
-    this.state = {
-    };
-
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  handleClick(event) {
-    // do something interesting here
-    console.log("handleClick");
-  }
-
-  render() {
+    function doClick(event) {
+	setCount(count + 1);
+    }
+    
     return (
-      <button className={styles.myButton} onClick={this.handleClick}>Click Me</button>
+	    <button className={styles.myButton} onClick={doClick}>Click Count - {count}</button>
     );
-  }
 }
+
 
 export default App;
 
